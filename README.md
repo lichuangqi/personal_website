@@ -35,6 +35,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 Without `RESEND_API_KEY`, the contact form validates input but does not send email.
 
+**AWS Amplify:** Console environment variables are not passed to Next.js server actions automatically. `amplify.yml` writes the Resend-related vars into `.env.production` during build. After changing variables in the Amplify console, trigger a new deploy (not just a cache clear).
+
 ## Scripts
 
 | Command | Description |

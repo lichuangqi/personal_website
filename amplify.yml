@@ -6,6 +6,10 @@ frontend:
         - npm install
     build:
       commands:
+        # Amplify console env vars are not available to Next.js SSR at runtime
+        # unless written into .env.production before build.
+        # https://docs.aws.amazon.com/amplify/latest/userguide/ssr-environment-variables.html
+        - env | grep -e RESEND_API_KEY -e CONTACT_TO_EMAIL -e RESEND_FROM >> .env.production
         - npm run build
   artifacts:
     baseDirectory: .next
