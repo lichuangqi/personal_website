@@ -14,7 +14,7 @@ export const experienceContent: ExperienceItem[] = [
     id: "exp-entwined",
     company: "Entwined",
     role: "Mid-level Software Engineer",
-    period: "Jan 2024 — Present",
+    period: "Jan 2024 — July 2026",
     location: "Brisbane, Australia (Hybrid)",
     summary:
       "Build and maintain a retail digital signage platform — CMS integrations and interactive kiosk solutions for enterprise clients — across Go data-lake services, NestJS GraphQL microservices, and Nuxt frontends deployed on GCP.",
@@ -63,7 +63,7 @@ export const experienceContent: ExperienceItem[] = [
     id: "exp-vizen-tech",
     company: "Vizen Tech",
     role: "Software Engineer II",
-    period: "Oct 2021 — Nov 2022",
+    period: "Oct 2021 — Oct 2022",
     location: "Beijing, China (On-site)",
     summary:
       "Built a smart city web platform with an immersive 3D panoramic viewing experience — spanning Vue/WebGL frontends, Java Spring Boot backend services, and a WeChat mini program for mobile access.",
@@ -86,7 +86,7 @@ export const experienceContent: ExperienceItem[] = [
     id: "exp-medex-tech",
     company: "Medex Tech",
     role: "Junior Software Engineer",
-    period: "Oct 2020 — Oct 2021",
+    period: "Sep 2020 — Oct 2021",
     location: "Beijing, China (On-site)",
     summary:
       "Deployed a comprehensive medical management system across five major healthcare centers — building responsive web applications with React, Vue 2, and Java Spring Boot.",
