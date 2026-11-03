@@ -1,9 +1,8 @@
-import Link from "next/link";
-
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/layout/section-heading";
-import { AboutLocationMap } from "@/components/sections/about-location-map";
+import { AboutCareerCard } from "@/components/sections/about-career-card";
 import { AnimateOnScroll } from "@/components/shared/animate-on-scroll";
+import { SmoothScrollLink } from "@/components/shared/smooth-scroll-link";
 import { profileContent } from "@/content/profile";
 
 export function AboutSection() {
@@ -30,16 +29,16 @@ export function AboutSection() {
               </p>
             </div>
 
-            <Link
+            <SmoothScrollLink
               href="#experience"
               className="mt-6 inline-block text-small font-medium text-primary transition-colors hover:text-primary/80"
             >
               View experience →
-            </Link>
+            </SmoothScrollLink>
           </AnimateOnScroll>
 
           <AnimateOnScroll delay={0.15} className="order-1 lg:order-2">
-            <AboutLocationMap />
+            <AboutCareerCard />
           </AnimateOnScroll>
         </div>
       </PageContainer>

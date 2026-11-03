@@ -1,7 +1,7 @@
 import { PageContainer } from "@/components/layout/page-container";
 import { SectionHeading } from "@/components/layout/section-heading";
 import { AnimateOnScroll } from "@/components/shared/animate-on-scroll";
-import { TechTag } from "@/components/shared/tech-tag";
+import { AnimatedTechStack } from "@/components/shared/animated-tech-stack";
 import { experienceContent } from "@/content/experience";
 
 export function ExperienceSection() {
@@ -51,11 +51,13 @@ export function ExperienceSection() {
                   ))}
                 </ul>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {item.technologies.map((tech) => (
-                    <TechTag key={tech} label={tech} />
-                  ))}
-                </div>
+                <AnimatedTechStack
+                  skills={item.technologies}
+                  ariaLabel={`${item.company} technology stack`}
+                  revealOnScroll
+                  delay={0.12}
+                  className="mt-5"
+                />
               </article>
             </AnimateOnScroll>
           ))}

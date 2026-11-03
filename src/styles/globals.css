@@ -148,22 +148,4 @@
     background-size: 3rem 3rem;
   }
 
-  .location-map .leaflet-container {
-    background: #e8eef4;
-    font-family: inherit;
-  }
-
-  .dark .location-map .leaflet-container {
-    background: #1e2433;
-  }
-
-  /* Same Voyager tiles in both themes — dim slightly in dark mode to match the UI */
-  .dark .location-map .map-tiles-dark .leaflet-tile-pane img {
-    filter: brightness(0.72) contrast(1.12) saturate(0.85);
-  }
-
-  /* Hide Leaflet UI chrome on the map canvas */
-  .location-map .leaflet-control-container {
-    display: none;
-  }
 }

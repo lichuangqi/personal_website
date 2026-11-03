@@ -1,34 +1,38 @@
 export const profileContent = {
-  headline: "Full-Stack Software Engineer",
+  headline: "Software Engineer",
   tagline:
-    "AI-focused engineer — from API architecture and system design to polished front-end UI.",
+    "Building maintainable web, mobile, and backend systems with TypeScript, React, Vue, Node.js, and Go.",
   about: {
-    title: "Full-stack Software Engineer · Brisbane, Australia",
-    bio: "Master of IT graduate from QUT with nearly 5 years of full-stack experience. Passionate about cutting-edge AI, with strengths in microservices, API architecture, web, and mobile development.",
+    title: "Software Engineer · Brisbane, Australia",
+    bio: "Software Engineer with 4+ years of commercial experience building web and mobile applications, backend APIs, and database-driven systems. Experienced in maintainable digital products, system integrations, automated testing, and production support.",
     lookingFor: {
-      summary: "Full-stack software engineer roles.",
+      summary: "Software engineer opportunities.",
       preferences: "Brisbane · Remote across Australia · Open to relocation",
     },
-    map: {
-      city: "Brisbane",
-      region: "Queensland, Australia",
-      latitude: -27.4705,
-      longitude: 153.026,
-      zoom: 11,
+    highlights: {
+      location: "Brisbane, Queensland",
+      experience: "4+ years commercial experience",
+      education: "Master of Information Technology, QUT",
+      focus: "Frontend · Application · Full-stack",
     },
   },
-  // Order: backend → frontend → mobile → data → cross-cutting skills
+  // A concise, recruiter-friendly subset of the resume skills.
   skillTags: [
-    "Go",
-    "NestJS",
     "React",
     "Next.js",
+    "TypeScript",
     "Vue",
     "Nuxt",
+    "Node.js",
+    "Express",
+    "NestJS",
+    "Go",
     "React Native",
-    "Flutter",
-    "SQL & MongoDB",
-    "System Design",
+    "PostgreSQL",
+    "MongoDB",
+    "AWS & GCP",
     "CI/CD",
+    "Docker",
+    "Kubernetes",
   ],
 } as const;

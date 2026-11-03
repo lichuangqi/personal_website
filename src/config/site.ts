@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: "Charlie Li",
-  title: "Charlie Li — Full-Stack Software Engineer",
+  title: "Charlie Li — Software Engineer",
   description:
-    "Full-stack software engineer portfolio. Experience and contact information for recruiters and collaborators.",
+    "Software engineer in Brisbane with 4+ years of commercial experience across web, mobile, backend APIs, integrations, testing, and production support.",
   url: "https://chuangqili.com",
   locale: "en_US",
   author: {
@@ -10,7 +10,7 @@ export const siteConfig = {
     englishName: "Charlie",
     pinyinName: "Chuangqi Li",
     email: "charlie.chuangqi.li@gmail.com",
-    role: "Full-Stack Software Engineer",
+    role: "Software Engineer",
     location: "Brisbane, Queensland, Australia",
     status: "Open to opportunities",
   },
@@ -19,9 +19,15 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/chuangqi-li/",
     email: "mailto:charlie.chuangqi.li@gmail.com",
   },
+  resume: "/resume/Chuangqi-Li-Software-Engineer-Resume.pdf",
   navigation: [
     { label: "About", href: "#about" },
     { label: "Experience", href: "#experience" },
     { label: "Contact", href: "#contact" },
+    {
+      label: "Resume",
+      href: "/resume/Chuangqi-Li-Software-Engineer-Resume.pdf",
+      download: true,
+    },
   ],
 } as const;

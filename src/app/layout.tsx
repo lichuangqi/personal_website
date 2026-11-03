@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
   authors: [{ name: siteConfig.author.name }],
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: siteConfig.title,
     description: siteConfig.description,
@@ -39,6 +42,27 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+};
+
+const personStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Chuangqi (Charlie) Li",
+  alternateName: "Charlie Li",
+  url: siteConfig.url,
+  jobTitle: siteConfig.author.role,
+  email: siteConfig.author.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Brisbane",
+    addressRegion: "Queensland",
+    addressCountry: "AU",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "Queensland University of Technology",
+  },
+  sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
 };
 
 export const viewport: Viewport = {
@@ -60,6 +84,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personStructuredData).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <SiteHeader />

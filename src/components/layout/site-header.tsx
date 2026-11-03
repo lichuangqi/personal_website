@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import { PageContainer } from "@/components/layout/page-container";
+import { SmoothScrollLink } from "@/components/shared/smooth-scroll-link";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/config/site";
@@ -28,15 +29,26 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {siteConfig.navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {siteConfig.navigation.map((item) =>
+            item.href.startsWith("#") ? (
+              <SmoothScrollLink
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-3 py-2 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                {item.label}
+              </SmoothScrollLink>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                download={"download" in item ? item.download : undefined}
+                className="rounded-md px-3 py-2 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="flex items-center gap-1">
@@ -64,16 +76,28 @@ export function SiteHeader() {
         )}
       >
         <PageContainer as="nav" className="flex flex-col gap-1 py-3">
-          {siteConfig.navigation.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2.5 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {siteConfig.navigation.map((item) =>
+            item.href.startsWith("#") ? (
+              <SmoothScrollLink
+                key={item.href}
+                href={item.href}
+                className="rounded-md px-3 py-2.5 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </SmoothScrollLink>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                download={"download" in item ? item.download : undefined}
+                className="rounded-md px-3 py-2.5 text-small text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
         </PageContainer>
       </div>
     </header>

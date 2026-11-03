@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowDown } from "lucide-react";
+import { ArrowDown, Download } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useCallback } from "react";
@@ -10,7 +10,9 @@ import {
   GitHubBrandIcon,
   LinkedInBrandIcon,
 } from "@/components/shared/social-brand-icons";
-import { TechTag } from "@/components/shared/tech-tag";
+import { AnimatedTechStack } from "@/components/shared/animated-tech-stack";
+import { SmoothScrollLink } from "@/components/shared/smooth-scroll-link";
+import { TypewriterText } from "@/components/shared/typewriter-text";
 import { siteConfig } from "@/config/site";
 import { profileContent } from "@/content/profile";
 
@@ -30,15 +32,22 @@ const socialLinks = [
 export function HeroSection() {
   const prefersReducedMotion = useReducedMotion();
 
-  const scrollToAbout = useCallback(() => {
-    const aboutSection = document.getElementById("about");
-    if (!aboutSection) return;
+  const scrollToSection = useCallback(
+    (id: string) => {
+      const section = document.getElementById(id);
+      if (!section) return;
 
-    aboutSection.scrollIntoView({
-      behavior: prefersReducedMotion ? "auto" : "smooth",
-      block: "start",
-    });
-  }, [prefersReducedMotion]);
+      section.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    },
+    [prefersReducedMotion],
+  );
+
+  const scrollToAbout = useCallback(() => {
+    scrollToSection("about");
+  }, [scrollToSection]);
 
   return (
     <section className="section-spacing relative overflow-hidden">
@@ -69,23 +78,26 @@ export function HeroSection() {
             {profileContent.headline}
           </p>
 
-          <p className="mt-4 max-w-2xl text-muted-foreground">
-            {profileContent.tagline}
-          </p>
+          <TypewriterText
+            text={profileContent.tagline}
+            className="mt-4 max-w-2xl text-muted-foreground"
+          />
 
           <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link
+              <SmoothScrollLink
                 href="#experience"
                 className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-6 text-small font-medium text-primary-foreground transition-colors hover:bg-primary/90"
               >
                 View experience
-              </Link>
+              </SmoothScrollLink>
               <Link
-                href="#contact"
+                href={siteConfig.resume}
+                download
                 className="inline-flex h-11 items-center justify-center rounded-md border border-border px-6 text-small font-medium text-foreground transition-colors hover:bg-muted"
               >
-                Get in touch
+                <Download className="mr-2 h-4 w-4" aria-hidden />
+                Download résumé
               </Link>
             </div>
 
@@ -110,11 +122,7 @@ export function HeroSection() {
             <p className="font-mono text-small uppercase tracking-widest text-muted-foreground">
               Tech Stack
             </p>
-            <div className="mt-3 flex flex-wrap gap-1.5 sm:gap-2">
-              {profileContent.skillTags.map((skill) => (
-                <TechTag key={skill} label={skill} />
-              ))}
-            </div>
+            <AnimatedTechStack skills={profileContent.skillTags} />
           </div>
         </motion.div>
 
